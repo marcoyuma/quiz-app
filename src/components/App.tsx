@@ -200,11 +200,14 @@ const App = () => {
         // nullish coalleshing for preventing from undefined possible value
         .reduce((acc, num) => (acc ?? 0) + (num ?? 0), 0);
 
+    const baseUrl =
+        "https://my-json-server.typicode.com/marcoyuma/quiz-app/questions";
     // effect for fetching some data from our "hand made" json api
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("http://localhost:8000/questions");
+                // const response = await fetch("http://localhost:8000/questions");
+                const response = await fetch(baseUrl);
                 if (!response.ok) throw new Error("Failed to fetch user");
 
                 const data = await response.json();
